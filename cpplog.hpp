@@ -429,9 +429,11 @@ namespace cpplog
             helpers::print_thread_id(m_logData->stream, m_logData->threadId);
             m_logData->stream << "] ";
 #endif
-
+            char mbstr[64];
+            std::time_t t = std::time(NULL);
+            std::strftime(mbstr, sizeof(mbstr), "%Y%m%d %H:%M:%S", std::localtime(&t));
             m_logData->stream << std::setfill(' ') << std::setw(5) << std::left << std::dec
-                        << LogMessage::getLevelName(m_logData->level) << " - "
+                        << LogMessage::getLevelName(m_logData->level) << " - " << mbstr << " - "
                         << m_logData->fileName << "(" << m_logData->line << "): ";
         }
 
