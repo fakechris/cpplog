@@ -686,7 +686,7 @@ namespace cpplog
 
             // Close old file, open new file.
             m_outStream.close();
-            m_outStream.open(newFileName.c_str(), std::ios_base::out);
+            m_outStream.open(newFileName.c_str(), std::ios_base::app);
         }
     };
 
@@ -765,7 +765,7 @@ namespace cpplog
 
             // Close old file, open new file.
             m_outStream.close();
-            m_outStream.open(newFileName.c_str(), std::ios_base::out);
+            m_outStream.open(newFileName.c_str(), std::ios_base::app);
 
             // Reset the rotate time.
             ::time(&m_lastRotateTime);
